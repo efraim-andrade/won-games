@@ -1,20 +1,8 @@
-import 'styled-components'
+import theme from './index'
+
+type Theme = typeof theme
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    title?: string
-
-    colors: {
-      primary: string
-      secondary: string
-
-      textWhite: string
-      textBlack: string
-      white: string
-
-      success: string
-      danger: string
-      warning: string
-    }
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultTheme extends Theme {}
 }

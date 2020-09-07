@@ -16,7 +16,7 @@ exports[`<Main /> should render the heading 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: #fff;
+  color: #FAFAFA;
   text-align: center;
   background-color: #06092b;
 }
@@ -64,4 +64,4 @@ exports[`<Main /> should render the heading 1`] = `
     src="/img/hero-illustration.svg"
   />
 </main>
-`
+`;

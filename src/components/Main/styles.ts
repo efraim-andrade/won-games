@@ -9,7 +9,7 @@ export const Container = styled.main`
   align-items: center;
   flex-direction: column;
 
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   text-align: center;
   background-color: #06092b;
 `

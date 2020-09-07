@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
-import GlobalStyles from '../src/styles/global'
+import theme from 'styles/theme'
+import GlobalStyles from 'styles/global'
 
 const Center = styled.div`
   width: 100%;
@@ -9,16 +10,16 @@ const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: #e5e5e5;
 `
 
 export const decorators = [
   (Story) => (
-    <Center>
-      <GlobalStyles />
+    <ThemeProvider theme={theme}>
+      <Center>
+        <GlobalStyles />
 
-      <Story />
-    </Center>
+        <Story />
+      </Center>
+    </ThemeProvider>
   )
 ]
