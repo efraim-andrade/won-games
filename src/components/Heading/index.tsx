@@ -6,14 +6,15 @@ export type HeadingProps = {
   color?: 'white' | 'black'
   lineLeft?: boolean
   lineBottom?: boolean
+  children: React.ReactNode
 }
 
-const Heading: React.FC<HeadingProps> = ({
+const Heading = ({
   children,
   color = 'white',
   lineLeft = false,
   lineBottom = false
-}) => {
+}: HeadingProps) => {
   return (
     <S.Container color={color} lineLeft={lineLeft} lineBottom={lineBottom}>
       {children}
