@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render the small size 1`] = `
+.c0 {
+  border: none;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: #FAFAFA;
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+<button
+  class="c0"
+>
+  <span>
+    Buy now
+  </span>
+</button>
+`

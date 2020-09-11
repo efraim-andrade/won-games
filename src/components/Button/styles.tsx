@@ -2,7 +2,9 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 import { ButtonProps } from '~/components/Button'
 
-type ContainerProps = Pick<ButtonProps, 'size'>
+type ContainerProps = {
+  hasIcon: boolean
+} & Pick<ButtonProps, 'size' | 'fullWidth'>
 
 const modifiers = {
   small: (theme: DefaultTheme) => css`
@@ -21,18 +23,37 @@ const modifiers = {
     padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
 
     font-size: ${theme.font.sizes.medium};
+  `,
+  fullWidth: () => css`
+    width: 100%;
+  `,
+  hasIcon: (theme: DefaultTheme) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1.5rem;
+
+      & + span {
+        margin-left: ${theme.spacings.xxsmall};
+      }
+    }
   `
 }
 
 export const Container = styled.button<ContainerProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, fullWidth, hasIcon }) => css`
     border: none;
     padding: ${theme.spacings.xxsmall};
     border-radius: ${theme.border.radius};
 
+    cursor: pointer;
     color: ${theme.colors.white};
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
 
     ${!!size && modifiers[size](theme)}
+    ${!!fullWidth && modifiers.fullWidth}
+    ${!!hasIcon && modifiers.hasIcon(theme)}
   `}
 `
