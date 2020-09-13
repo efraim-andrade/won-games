@@ -13,6 +13,9 @@ export default {
     icon: {
       type: ''
     }
+  },
+  parameters: {
+    layout: 'centered'
   }
 } as Meta
 
