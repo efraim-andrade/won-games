@@ -28,10 +28,6 @@ const modifiers = {
     width: 100%;
   `,
   hasIcon: (theme: DefaultTheme) => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
     svg {
       width: 1.5rem;
 
@@ -48,9 +44,18 @@ export const Container = styled.button<ContainerProps>`
     padding: ${theme.spacings.xxsmall};
     border-radius: ${theme.border.radius};
 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     cursor: pointer;
+    text-decoration: none;
     color: ${theme.colors.white};
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+
+    &:hover {
+      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+    }
 
     ${!!size && modifiers[size](theme)}
     ${!!fullWidth && modifiers.fullWidth}
