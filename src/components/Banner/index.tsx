@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Button from '~/components/Button'
+import Ribbon, { RibbonColors, RibbonSizes } from '~/components/Ribbon'
 
 import * as S from './styles'
 
@@ -10,6 +11,9 @@ export type BannerProps = {
   subtitle: string
   buttonLink: string
   buttonLabel: string
+  ribbon?: React.ReactNode
+  ribbonSize?: RibbonSizes
+  ribbonColor?: RibbonColors
 }
 
 const Banner = ({
@@ -17,7 +21,10 @@ const Banner = ({
   title,
   subtitle,
   buttonLink,
-  buttonLabel
+  buttonLabel,
+  ribbon = '',
+  ribbonColor,
+  ribbonSize
 }: BannerProps) => {
   return (
     <S.Container>
@@ -32,6 +39,12 @@ const Banner = ({
           {buttonLabel}
         </Button>
       </S.Caption>
+
+      {!!ribbon && (
+        <Ribbon color={ribbonColor} size={ribbonSize}>
+          {ribbon}
+        </Ribbon>
+      )}
     </S.Container>
   )
 }
