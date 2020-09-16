@@ -18,7 +18,7 @@ export const Content = styled.div`
     gap: ${theme.grid.gutter};
 
     ${media.greaterThan('medium')`
-      grid-template-columns: repeat(4, 1fr)
+      grid-template-columns: repeat(4, 1fr);
     `}
   `}
 `
