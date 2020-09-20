@@ -9,7 +9,7 @@
     "lint": "eslint src --max-warnings=0",
     "commit": "lint-staged && git cz",
     "test": "jest --coverage=false",
-    "test:watch": "jest --watchAll=true",
+    "test:watch": "jest --watchAll=true --coverage=false",
     "test:coverage": "jest",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public",

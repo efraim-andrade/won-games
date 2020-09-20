@@ -6,11 +6,26 @@ export default {
   title: 'Highlight',
   component: Highlight,
   args: {
-    title: 'ReadDead its back',
+    title: 'ReadDead is back!',
     subtitle: 'Come see Johns new adventures',
     buttonLabel: 'Buy now',
-    buttonLink: '/rdr2'
+    buttonLink: '/games/rdr2',
+    backgroundImage: '/img/red-dead-img.jpg'
   }
 } as Meta
 
-export const Basic: Story<HighlightProps> = (args) => <Highlight {...args} />
+export const Default: Story<HighlightProps> = (args) => (
+  <div style={{ maxWidth: '104rem' }}>
+    <Highlight {...args} />
+  </div>
+)
+
+export const WithFloatImage: Story<HighlightProps> = (args) => (
+  <div style={{ maxWidth: '104rem' }}>
+    <Highlight {...args} />
+  </div>
+)
+
+WithFloatImage.args = {
+  floatImage: '/img/red-dead-float.png'
+}
