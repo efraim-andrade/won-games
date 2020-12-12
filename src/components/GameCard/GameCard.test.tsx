@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react'
 
+import theme from '~/styles/theme'
 import { renderWithTheme } from '~/utils/tests/helpers'
 
 import GameCard from '.'
@@ -30,5 +31,26 @@ describe('<GameCard />', () => {
 
     expect(screen.getByText(/R\$ 235,00/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
+  })
+
+  it('should render price in label', () => {
+    renderWithTheme(<GameCard {...props} />)
+
+    const price = screen.getByText(props.price)
+
+    expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
+    expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
+  })
+
+  it('should render a line-through in price when is promotional', () => {
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 15,00" />)
+
+    expect(screen.getByText(props.price)).toHaveStyle({
+      textDecoration: 'line-through'
+    })
+
+    expect(screen.getByText(/R\$ 15,00/i)).not.toHaveStyle({
+      textDecoration: 'line-through'
+    })
   })
 })
