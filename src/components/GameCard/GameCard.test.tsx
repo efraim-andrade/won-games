@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import theme from '~/styles/theme'
 import { renderWithTheme } from '~/utils/tests/helpers'
@@ -52,5 +53,39 @@ describe('<GameCard />', () => {
     expect(screen.getByText(/R\$ 15,00/i)).not.toHaveStyle({
       textDecoration: 'line-through'
     })
+  })
+
+  it('should render a filled Favorite icon when favorite is true', () => {
+    renderWithTheme(<GameCard {...props} favorite />)
+
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
+
+  it('should call onFav method when favorite is clicked', () => {
+    const onFav = jest.fn()
+
+    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />)
+
+    userEvent.click(screen.getAllByRole('button')[0])
+
+    expect(onFav).toBeCalled()
+  })
+
+  it('should render a ribbon ', () => {
+    renderWithTheme(
+      <GameCard
+        {...props}
+        promotionalPrice="R$ 15,00"
+        ribbon="20% OFF"
+        ribbonColor="secondary"
+        ribbonSize="small"
+      />
+    )
+
+    const ribbon = screen.getByText(/20% OFF/i)
+
+    expect(ribbon).toBeInTheDocument()
+    expect(ribbon).toHaveStyle({ backgroundColor: theme.colors.secondary })
+    expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
   })
 })

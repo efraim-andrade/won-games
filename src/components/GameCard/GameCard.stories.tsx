@@ -11,11 +11,26 @@ export default {
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
     promotionalPrice: 'R$ 199,00'
+  },
+  argTypes: {
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'dark'
+    }
   }
 } as Meta
 
 export const Basic: Story<GameCardProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <GameCard {...args} />
+  </div>
+)
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ width: '30rem' }}>
+    <GameCard {...args} ribbon="20% OFF" />
   </div>
 )
