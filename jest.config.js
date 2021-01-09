@@ -12,7 +12,7 @@ module.exports = {
     '!src/pages/_document.tsx'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
-  modulePaths: ['<rootDir>/src/'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   moduleNameMapper: {
     '~/(.*)': '<rootDir>/src/$1'
   }
